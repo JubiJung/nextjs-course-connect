@@ -19,7 +19,7 @@ const HomePage = (props) => {
 
 export async function getStaticProps() {
   const client = await MongoClient.connect(
-    "mongodb+srv://jubi1838:5BnpzlPnZf6GbPq9@cluster0.fmfz8dt.mongodb.net/connect?retryWrites=true&w=majority"
+    "mongodb+srv://jubi1838:<password>@cluster0.fmfz8dt.mongodb.net/connect?retryWrites=true&w=majority"
   );
   const db = client.db();
   const connectCollection = db.collection("connect");
