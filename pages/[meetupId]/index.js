@@ -27,6 +27,7 @@ export async function getStaticPaths() {
   const db = client.db();
   const connectCollection = db.collection("connect");
   const connects = await connectCollection.find({}, { _id: 1 }).toArray();
+  client.close();
   return {
     fallback: "blocking",
     paths: connects.map((connect) => ({
