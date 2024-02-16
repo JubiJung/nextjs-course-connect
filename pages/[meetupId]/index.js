@@ -28,7 +28,7 @@ export async function getStaticPaths() {
   const connectCollection = db.collection("connect");
   const connects = await connectCollection.find({}, { _id: 1 }).toArray();
   return {
-    fallback: false,
+    fallback: "blocking",
     paths: connects.map((connect) => ({
       params: {
         meetupId: connect._id.toString(),
@@ -44,12 +44,10 @@ export async function getStaticProps(context) {
   );
   const db = client.db();
   const connectCollection = db.collection("connect");
-  //사실 MongoDB에서 ID는 이상한 객체 ID라는 것을 명심하세요. 특정 ID를 정확하게 찾으려면 이것을 문자열에서 객체 ID로
   const selectedConnect = await connectCollection.findOne({
-    _id: new ObjectId(meetupId),
+    _id: new meetupId(),
   });
   client.close();
-
   return {
     props: {
       meetupData: {

@@ -5,8 +5,6 @@ import classes from "./MeetupItem.module.css";
 function MeetupItem(props) {
   const router = useRouter();
   const showDetailsHandler = () => {
-    //Link를 사용하는 대신 이걸 사용함.
-    //탐색하고자 하는 path를 전달
     router.push(`/${props.id}`);
   };
   return (

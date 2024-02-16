@@ -1,4 +1,3 @@
-//api route는 컴포넌트 함수를 입력하는 것이 아님. 서버사이드 코드를 포함하는 함수를 정의함.
 import { MongoClient } from "mongodb";
 
 async function handler(req, res) {
