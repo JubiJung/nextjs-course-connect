@@ -19,7 +19,6 @@ const MeetupDetails = (props) => {
   );
 };
 
-//
 export async function getStaticPaths() {
   const client = await MongoClient.connect(
     "mongodb+srv://jubi1838:5BnpzlPnZf6GbPq9@cluster0.fmfz8dt.mongodb.net/connect?retryWrites=true&w=majority"
